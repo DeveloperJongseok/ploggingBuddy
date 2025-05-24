@@ -15,7 +15,8 @@ function MeetingCard({
   gatheringTime,
 }) {
   let statusClass = "";
-  if (postStatus === "GATHERING_CONFIRMED") statusClass = "closed";
+  if (postStatus === "GATHERING_CONFIRMED" || postStatus === "FINISHED")
+    statusClass = "closed";
   else if (postStatus === "GATHERING_PENDING") statusClass = "hold";
   const navigate = useNavigate();
 
@@ -27,7 +28,7 @@ function MeetingCard({
       <div className="card-title sb-16">{gatheringName}</div>
       <div className="card-content">
         <div className={`meeting-status ${statusClass} rg-12`}>
-          {postStatus === "GATHERING_CONFIRMED"
+          {postStatus === "GATHERING_CONFIRMED" || postStatus === "FINISHED"
             ? "모집 완료"
             : postStatus === "GATHERING_PENDING"
             ? "모집 마감 보류"
