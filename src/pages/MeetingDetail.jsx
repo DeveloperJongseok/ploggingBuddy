@@ -219,7 +219,8 @@ function MeetingDetail() {
         <main className="meeting-content">
           {/* 상태 뱃지 */}
           <div className={`meeting-status ${statusClass} rg-12`}>
-            {meeting.gatheringStatus === "GATHERING_CONFIRMED"
+            {meeting.gatheringStatus === "GATHERING_CONFIRMED" ||
+            meeting.gatheringStatus === "FINISHED"
               ? "모집 완료"
               : meeting.gatheringStatus === "GATHERING_PENDING"
               ? "모집 마감 보류"
